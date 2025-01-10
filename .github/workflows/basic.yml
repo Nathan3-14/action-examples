@@ -7,9 +7,12 @@ jobs:
     			content: read
 		steps:
 			- name: "Print welcome message"
-			working-directory: ./
-			run: |
-	 			echo "Hi " << cat welcome.txt
+			  working-directory: ./
+			  run: |
+	 		    echo "Hi " << cat welcome.txt
+      - name: "other"
+        run: |
+          echo "test"
 	second-job:
   		name: "Second Jon"
   		permissions:
