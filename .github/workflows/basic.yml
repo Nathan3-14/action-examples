@@ -4,6 +4,7 @@ on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
+    name: "First Name"
     permissions:
       contents: read
     steps:
@@ -16,12 +17,12 @@ jobs:
           echo "test"
   second-job:
     runs-on: ubuntu-latest
-    name: "Second Jon"
+    name: "Second Job"
     permissions:
       contents: write
     steps:
       - name: "Creates a file"
-        working-directory: ./test-files
+        working-directory: test-files
         run: |
           echo "hi there!" >> cool${{github.run_id}}.txt
           echo "super cool" >> cool.txt
