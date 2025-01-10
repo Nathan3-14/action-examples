@@ -2,27 +2,29 @@ name: "Basic Example"
 run-name: "Basic example, triggered by ${{ github.actor }}"
 on: push
 jobs:
-	first-job:
-		permissions:
-    			content: read
-		steps:
-			- name: "Print welcome message"
-			  working-directory: ./
-			  run: |
-	 		    echo "Hi " << cat welcome.txt
+  first-job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: "Print welcome message"
+        working-directory: ./
+        run: |
+          echo "Hi " << cat welcome.txt
       - name: "other"
         run: |
           echo "test"
-	second-job:
-  		name: "Second Jon"
-  		permissions:
-   			content: write
-		steps:
- 	  		- name: "Creates a file"
-    			working-directory: ./test-files
-       			run: |
- 				echo "hi there!" >> cool${{github.run_id}}.txt
-     				echo "super cool" >> cool.txt
-	 
-    
-    
+  second-job:
+    runs-on: ubuntu-latest
+    name: "Second Jon"
+    permissions:
+      contents: write
+    steps:
+      - name: "Creates a file"
+        working-directory: ./test-files
+        run: |
+          echo "hi there!" >> cool${{github.run_id}}.txt
+          echo "super cool" >> cool.txt
+
+
+
