@@ -1,9 +1,6 @@
 name: "Basic Example"
 run-name: "Basic example, triggered by ${{ github.actor }}"
 on: push
-defaults:
-	run:
-    shell: linux
 jobs:
 	first-job:
     permissions:
